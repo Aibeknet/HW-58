@@ -30,18 +30,22 @@ const Modal: React.FC<Props> = ({ show, title = 'Modal title', closeModal, butto
                   onClick={closeModal}
                   className="btn-close"
                   aria-label="Close"
-                ></button>
+                >
+                </button>
               </div>
               <div className="p-2">
                 {children}
               </div>
               <div className="modal-footer">
                 {buttonConfigs?.map((btn, index) => (
-                  <button key={index} onClick={btn.onClick} className={`btn btn-${btn.type}`}>
+                  <button
+                    key={index}
+                    onClick={btn.onClick}
+                    className={`btn btn-${btn.type}`}
+                  >
                     {btn.label}
                   </button>
                 ))}
-                <button onClick={closeModal} className="btn btn-primary">Закрыть</button>
               </div>
             </div>
           </div>
