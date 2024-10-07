@@ -30,7 +30,9 @@ const Alert: React.FC<Props> = ({ type, onDismiss, clickDismissable, children, s
               type="button"
               className="btn-close"
               aria-label="Close"
-              onClick={onDismiss}></button>
+              onClick={onDismiss}
+            >
+            </button>
           )}
         </div>
       </div>

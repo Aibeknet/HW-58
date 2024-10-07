@@ -21,31 +21,24 @@ const Modal: React.FC<Props> = ({ show, title = 'Modal title', closeModal, butto
     <>
       <BackDrop show={show} closeModal={closeModal} />
       <CSSTransition in={show} timeout={300} classNames="fade" unmountOnExit>
-        <div className="modal">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h1 className="modal-title fs-5">{title}</h1>
-                <button
-                  onClick={closeModal}
-                  className="btn-close"
-                  aria-label="Close"
-                >
-                </button>
-              </div>
-              <div className="p-2">
-                {children}
-              </div>
-              <div className="modal-footer">
-                {buttonConfigs?.map((btn, index) => (
-                  <button
-                    key={index}
-                    onClick={btn.onClick}
-                    className={`btn btn-${btn.type}`}
-                  >
-                    {btn.label}
-                  </button>
-                ))}
+        <div className="modal show" style={{display: show ? 'block' : 'none'}}>
+          <div className="modal show" style={{display: show ? 'block' : 'none'}}>
+            <div className="modal-dialog">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h1 className="modal-title fs-5">{title}</h1>
+                  <button onClick={closeModal} className="btn-close" aria-label="Close"></button>
+                </div>
+                <div className="p-2">
+                  {children}
+                </div>
+                <div className="modal-footer">
+                  {buttonConfigs?.map((btn, index) => (
+                    <button key={index} onClick={btn.onClick} className={`btn btn-${btn.type}`}>
+                      {btn.label}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -56,5 +49,3 @@ const Modal: React.FC<Props> = ({ show, title = 'Modal title', closeModal, butto
 };
 
 export default Modal;
-
-
